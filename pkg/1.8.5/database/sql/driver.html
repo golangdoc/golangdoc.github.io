@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>driver - The Go Programming Language</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<link rel="stylesheet" href="/lib/godoc/jquery.treeview.css">
+<script type="text/javascript">window.initFuncs = [];</script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../index.html">The Go Programming Language</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../index.html">Go</a></div>
+<a href="driver.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+<a href="../../../doc/index.html">Documents</a>
+<a href="../../index.html">Packages</a>
+<a href="../../../project/index.html">The Project</a>
+<a href="../../../help/index.html">Help</a>
+<a href="/blog/">Blog</a>
+
+<input type="text" id="search" name="q" class="inactive" value="Search" placeholder="Search">
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>Package driver</h1>
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script type='text/javascript'>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "database/sql/driver"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="driver.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="driver.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package driver defines interfaces to be implemented by database
+drivers as used by package sql.
+</p>
+<p>
+Most code should use package sql.
+</p>
+
+			</div>
+		</div>
+		
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="driver.html#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="driver.html#IsScanValue">func IsScanValue(v interface{}) bool</a></dd>
+			
+				
+				<dd><a href="driver.html#IsValue">func IsValue(v interface{}) bool</a></dd>
+			
+			
+				
+				<dd><a href="driver.html#ColumnConverter">type ColumnConverter</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Conn">type Conn</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#ConnBeginTx">type ConnBeginTx</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#ConnPrepareContext">type ConnPrepareContext</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Driver">type Driver</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Execer">type Execer</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#ExecerContext">type ExecerContext</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#IsolationLevel">type IsolationLevel</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#NamedValue">type NamedValue</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#NotNull">type NotNull</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="driver.html#NotNull.ConvertValue">func (n NotNull) ConvertValue(v interface{}) (Value, error)</a></dd>
+				
+			
+				
+				<dd><a href="driver.html#Null">type Null</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="driver.html#Null.ConvertValue">func (n Null) ConvertValue(v interface{}) (Value, error)</a></dd>
+				
+			
+				
+				<dd><a href="driver.html#Pinger">type Pinger</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Queryer">type Queryer</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#QueryerContext">type QueryerContext</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Result">type Result</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Rows">type Rows</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#RowsAffected">type RowsAffected</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="driver.html#RowsAffected.LastInsertId">func (RowsAffected) LastInsertId() (int64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="driver.html#RowsAffected.RowsAffected">func (v RowsAffected) RowsAffected() (int64, error)</a></dd>
+				
+			
+				
+				<dd><a href="driver.html#RowsColumnTypeDatabaseTypeName">type RowsColumnTypeDatabaseTypeName</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#RowsColumnTypeLength">type RowsColumnTypeLength</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#RowsColumnTypeNullable">type RowsColumnTypeNullable</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#RowsColumnTypePrecisionScale">type RowsColumnTypePrecisionScale</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#RowsColumnTypeScanType">type RowsColumnTypeScanType</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#RowsNextResultSet">type RowsNextResultSet</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Stmt">type Stmt</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#StmtExecContext">type StmtExecContext</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#StmtQueryContext">type StmtQueryContext</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Tx">type Tx</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#TxOptions">type TxOptions</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Value">type Value</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#ValueConverter">type ValueConverter</a></dd>
+				
+				
+			
+				
+				<dd><a href="driver.html#Valuer">type Valuer</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h4>Package files</h4>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="../../../src/database/sql/driver/driver.go.html">driver.go</a>
+			
+				<a href="../../../src/database/sql/driver/types.go.html">types.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		<div id="pkg-callgraph" class="toggle" style="display: none">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Internal Call Graph section">Internal call graph ▹</h2>
+		</div> <!-- .expanded -->
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Internal Call Graph section">Internal call graph ▾</h2>
+			<p>
+			  In the call graph viewer below, each node
+			  is a function belonging to this package
+			  and its children are the functions it
+			  calls&mdash;perhaps dynamically.
+			</p>
+			<p>
+			  The root nodes are the entry points of the
+			  package: functions that may be called from
+			  outside the package.
+			  There may be non-exported or anonymous
+			  functions among them if they are called
+			  dynamically from another package.
+			</p>
+			<p>
+			  Click a node to visit that function's source code.
+			  From there you can visit its callers by
+			  clicking its declaring <code>func</code>
+			  token.
+			</p>
+			<p>
+			  Functions may be omitted if they were
+			  determined to be unreachable in the
+			  particular programs or tests that were
+			  analyzed.
+			</p>
+			<!-- Zero means show all package entry points. -->
+			<ul style="margin-left: 0.5in" id="callgraph-0" class="treeview"></ul>
+		</div>
+		</div> <!-- #pkg-callgraph -->
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>
+Bool is a ValueConverter that converts input values to bools.
+</p>
+<p>
+The conversion rules are:
+</p>
+<pre>- booleans are returned unchanged
+- for integer types,
+     1 is true
+     0 is false,
+     other integers are an error
+- for strings and []byte, same rules as strconv.ParseBool
+- all other types are an error
+</pre>
+
+				<pre>var <span id="Bool">Bool</span> boolType</pre>
+			
+				<p>
+DefaultParameterConverter is the default implementation of
+ValueConverter that&#39;s used when a Stmt doesn&#39;t implement
+ColumnConverter.
+</p>
+<p>
+DefaultParameterConverter returns its argument directly if
+IsValue(arg). Otherwise, if the argument implements Valuer, its
+Value method is used to return a Value. As a fallback, the provided
+argument&#39;s underlying type is used to convert it to a Value:
+underlying integer types are converted to int64, floats to float64,
+bool, string, and []byte to themselves. If the argument is a nil
+pointer, ConvertValue returns a nil Value. If the argument is a
+non-nil pointer, it is dereferenced and ConvertValue is called
+recursively. Other types are an error.
+</p>
+
+				<pre>var <span id="DefaultParameterConverter">DefaultParameterConverter</span> defaultConverter</pre>
+			
+				<p>
+ErrBadConn should be returned by a driver to signal to the sql
+package that a driver.Conn is in a bad state (such as the server
+having earlier closed the connection) and the sql package should
+retry on a new connection.
+</p>
+<p>
+To prevent duplicate operations, ErrBadConn should NOT be returned
+if there&#39;s a possibility that the database server might have
+performed the operation. Even if the server sends back an error,
+you shouldn&#39;t return ErrBadConn.
+</p>
+
+				<pre>var <span id="ErrBadConn">ErrBadConn</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;driver: bad connection&#34;)</pre>
+			
+				<p>
+ErrSkip may be returned by some optional interfaces&#39; methods to
+indicate at runtime that the fast path is unavailable and the sql
+package should continue as if the optional interface was not
+implemented. ErrSkip is only supported where explicitly
+documented.
+</p>
+
+				<pre>var <span id="ErrSkip">ErrSkip</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;driver: skip fast-path; continue as if unimplemented&#34;)</pre>
+			
+				<p>
+Int32 is a ValueConverter that converts input values to int64,
+respecting the limits of an int32 value.
+</p>
+
+				<pre>var <span id="Int32">Int32</span> int32Type</pre>
+			
+				<p>
+ResultNoRows is a pre-defined Result for drivers to return when a DDL
+command (such as a CREATE TABLE) succeeds. It returns an error for both
+LastInsertId and RowsAffected.
+</p>
+
+				<pre>var <span id="ResultNoRows">ResultNoRows</span> noRows</pre>
+			
+				<p>
+String is a ValueConverter that converts its input to a string.
+If the value is already a string or []byte, it&#39;s unchanged.
+If the value is of another type, conversion to string is done
+with fmt.Sprintf(&#34;%v&#34;, v).
+</p>
+
+				<pre>var <span id="String">String</span> stringType</pre>
+			
+		
+		
+			
+			
+			<h2 id="IsScanValue">func <a href="../../../src/database/sql/driver/types.go%3Fs=5263:5299.html#L178">IsScanValue</a>
+				<a class="permalink" href="driver.html#IsScanValue">&#xb6;</a>
+			</h2>
+			<pre>func IsScanValue(v interface{}) <a href="../../builtin/index.html#bool">bool</a></pre>
+			<p>
+IsScanValue is equivalent to IsValue.
+It exists for compatibility.
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="IsValue">func <a href="../../../src/database/sql/driver/types.go%3Fs=5015:5047.html#L165">IsValue</a>
+				<a class="permalink" href="driver.html#IsValue">&#xb6;</a>
+			</h2>
+			<pre>func IsValue(v interface{}) <a href="../../builtin/index.html#bool">bool</a></pre>
+			<p>
+IsValue reports whether v is a valid Value parameter type.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ColumnConverter">type <a href="../../../src/database/sql/driver/driver.go%3Fs=9215:9497.html#L258">ColumnConverter</a>
+				<a class="permalink" href="driver.html#ColumnConverter">&#xb6;</a>
+			</h2>
+			<p>
+ColumnConverter may be optionally implemented by Stmt if the
+statement is aware of its own columns&#39; types and can convert from
+any type to a driver Value.
+</p>
+
+			<pre>type ColumnConverter interface {
+    <span class="comment">// ColumnConverter returns a ValueConverter for the provided</span>
+    <span class="comment">// column index. If the type of a specific column isn&#39;t known</span>
+    <span class="comment">// or shouldn&#39;t be handled specially, DefaultValueConverter</span>
+    <span class="comment">// can be returned.</span>
+    ColumnConverter(idx <a href="../../builtin/index.html#int">int</a>) <a href="driver.html#ValueConverter">ValueConverter</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Conn">type <a href="../../../src/database/sql/driver/driver.go%3Fs=4674:5339.html#L133">Conn</a>
+				<a class="permalink" href="driver.html#Conn">&#xb6;</a>
+			</h2>
+			<p>
+Conn is a connection to a database. It is not used concurrently
+by multiple goroutines.
+</p>
+<p>
+Conn is assumed to be stateful.
+</p>
+
+			<pre>type Conn interface {
+    <span class="comment">// Prepare returns a prepared statement, bound to this connection.</span>
+    Prepare(query <a href="../../builtin/index.html#string">string</a>) (<a href="driver.html#Stmt">Stmt</a>, <a href="../../builtin/index.html#error">error</a>)
+
+    <span class="comment">// Close invalidates and potentially stops any current</span>
+    <span class="comment">// prepared statements and transactions, marking this</span>
+    <span class="comment">// connection as no longer in use.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Because the sql package maintains a free pool of</span>
+    <span class="comment">// connections and only calls Close when there&#39;s a surplus of</span>
+    <span class="comment">// idle connections, it shouldn&#39;t be necessary for drivers to</span>
+    <span class="comment">// do their own connection caching.</span>
+    Close() <a href="../../builtin/index.html#error">error</a>
+
+    <span class="comment">// Begin starts and returns a new transaction.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Deprecated: Drivers should implement ConnBeginTx instead (or additionally).</span>
+    Begin() (<a href="driver.html#Tx">Tx</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConnBeginTx">type <a href="../../../src/database/sql/driver/driver.go%3Fs=6157:6886.html#L176">ConnBeginTx</a>
+				<a class="permalink" href="driver.html#ConnBeginTx">&#xb6;</a>
+			</h2>
+			<p>
+ConnBeginTx enhances the Conn interface with context and TxOptions.
+</p>
+
+			<pre>type ConnBeginTx interface {
+    <span class="comment">// BeginTx starts and returns a new transaction.</span>
+    <span class="comment">// If the context is canceled by the user the sql package will</span>
+    <span class="comment">// call Tx.Rollback before discarding and closing the connection.</span>
+    <span class="comment">//</span>
+    <span class="comment">// This must check opts.Isolation to determine if there is a set</span>
+    <span class="comment">// isolation level. If the driver does not support a non-default</span>
+    <span class="comment">// level and one is set or if there is a non-default isolation level</span>
+    <span class="comment">// that is not supported, an error must be returned.</span>
+    <span class="comment">//</span>
+    <span class="comment">// This must also check opts.ReadOnly to determine if the read-only</span>
+    <span class="comment">// value is true to either set the read-only transaction property if supported</span>
+    <span class="comment">// or return an error if it is not supported.</span>
+    BeginTx(ctx <a href="../../context.html">context</a>.<a href="../../context.html#Context">Context</a>, opts <a href="driver.html#TxOptions">TxOptions</a>) (<a href="driver.html#Tx">Tx</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConnPrepareContext">type <a href="../../../src/database/sql/driver/driver.go%3Fs=5405:5698.html#L154">ConnPrepareContext</a>
+				<a class="permalink" href="driver.html#ConnPrepareContext">&#xb6;</a>
+			</h2>
+			<p>
+ConnPrepareContext enhances the Conn interface with context.
+</p>
+
+			<pre>type ConnPrepareContext interface {
+    <span class="comment">// PrepareContext returns a prepared statement, bound to this connection.</span>
+    <span class="comment">// context is for the preparation of the statement,</span>
+    <span class="comment">// it must not store the context within the statement itself.</span>
+    PrepareContext(ctx <a href="../../context.html">context</a>.<a href="../../context.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>) (<a href="driver.html#Stmt">Stmt</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Driver">type <a href="../../../src/database/sql/driver/driver.go%3Fs=1037:1458.html#L35">Driver</a>
+				<a class="permalink" href="driver.html#Driver">&#xb6;</a>
+			</h2>
+			<p>
+Driver is the interface that must be implemented by a database
+driver.
+</p>
+
+			<pre>type Driver interface {
+    <span class="comment">// Open returns a new connection to the database.</span>
+    <span class="comment">// The name is a string in a driver-specific format.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Open may return a cached connection (one previously</span>
+    <span class="comment">// closed), but doing so is unnecessary; the sql package</span>
+    <span class="comment">// maintains a pool of idle connections for efficient re-use.</span>
+    <span class="comment">//</span>
+    <span class="comment">// The returned connection is only used by one goroutine at a</span>
+    <span class="comment">// time.</span>
+    Open(name <a href="../../builtin/index.html#string">string</a>) (<a href="driver.html#Conn">Conn</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Execer">type <a href="../../../src/database/sql/driver/driver.go%3Fs=3059:3134.html#L86">Execer</a>
+				<a class="permalink" href="driver.html#Execer">&#xb6;</a>
+			</h2>
+			<p>
+Execer is an optional interface that may be implemented by a Conn.
+</p>
+<p>
+If a Conn does not implement Execer, the sql package&#39;s DB.Exec will
+first prepare a query, execute the statement, and then close the
+statement.
+</p>
+<p>
+Exec may return ErrSkip.
+</p>
+<p>
+Deprecated: Drivers should implement ExecerContext instead (or additionally).
+</p>
+
+			<pre>type Execer interface {
+    Exec(query <a href="../../builtin/index.html#string">string</a>, args []<a href="driver.html#Value">Value</a>) (<a href="driver.html#Result">Result</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExecerContext">type <a href="../../../src/database/sql/driver/driver.go%3Fs=3508:3623.html#L99">ExecerContext</a>
+				<a class="permalink" href="driver.html#ExecerContext">&#xb6;</a>
+			</h2>
+			<p>
+ExecerContext is an optional interface that may be implemented by a Conn.
+</p>
+<p>
+If a Conn does not implement ExecerContext, the sql package&#39;s DB.Exec will
+first prepare a query, execute the statement, and then close the
+statement.
+</p>
+<p>
+ExecerContext may return ErrSkip.
+</p>
+<p>
+ExecerContext must honor the context timeout and return when the context is canceled.
+</p>
+
+			<pre>type ExecerContext interface {
+    ExecContext(ctx <a href="../../context.html">context</a>.<a href="../../context.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args []<a href="driver.html#NamedValue">NamedValue</a>) (<a href="driver.html#Result">Result</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IsolationLevel">type <a href="../../../src/database/sql/driver/driver.go%3Fs=5883:5906.html#L165">IsolationLevel</a>
+				<a class="permalink" href="driver.html#IsolationLevel">&#xb6;</a>
+			</h2>
+			<p>
+IsolationLevel is the transaction isolation level stored in TxOptions.
+</p>
+<p>
+This type should be considered identical to sql.IsolationLevel along
+with any values defined on it.
+</p>
+
+			<pre>type IsolationLevel <a href="../../builtin/index.html#int">int</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NamedValue">type <a href="../../../src/database/sql/driver/driver.go%3Fs=628:958.html#L19">NamedValue</a>
+				<a class="permalink" href="driver.html#NamedValue">&#xb6;</a>
+			</h2>
+			<p>
+NamedValue holds both the value name and value.
+</p>
+
+			<pre>type NamedValue struct {
+    <span class="comment">// If the Name is not empty it should be used for the parameter identifier and</span>
+    <span class="comment">// not the ordinal position.</span>
+    <span class="comment">//</span>
+<span id="NamedValue.Name"></span>    <span class="comment">// Name will not have a symbol prefix.</span>
+    Name <a href="../../builtin/index.html#string">string</a>
+
+<span id="NamedValue.Ordinal"></span>    <span class="comment">// Ordinal position of the parameter starting from one and is always set.</span>
+    Ordinal <a href="../../builtin/index.html#int">int</a>
+
+<span id="NamedValue.Value"></span>    <span class="comment">// Value is the parameter value.</span>
+    Value <a href="driver.html#Value">Value</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NotNull">type <a href="../../../src/database/sql/driver/types.go%3Fs=4733:4782.html#L153">NotNull</a>
+				<a class="permalink" href="driver.html#NotNull">&#xb6;</a>
+			</h2>
+			<p>
+NotNull is a type that implements ValueConverter by disallowing nil
+values but otherwise delegating to another ValueConverter.
+</p>
+
+			<pre>type NotNull struct {
+<span id="NotNull.Converter"></span>    Converter <a href="driver.html#ValueConverter">ValueConverter</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="NotNull.ConvertValue">func (NotNull) <a href="../../../src/database/sql/driver/types.go%3Fs=4784:4843.html#L157">ConvertValue</a>
+					<a class="permalink" href="driver.html#NotNull.ConvertValue">&#xb6;</a>
+				</h3>
+				<pre>func (n <a href="driver.html#NotNull">NotNull</a>) ConvertValue(v interface{}) (<a href="driver.html#Value">Value</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Null">type <a href="../../../src/database/sql/driver/types.go%3Fs=4418:4464.html#L140">Null</a>
+				<a class="permalink" href="driver.html#Null">&#xb6;</a>
+			</h2>
+			<p>
+Null is a type that implements ValueConverter by allowing nil
+values but otherwise delegating to another ValueConverter.
+</p>
+
+			<pre>type Null struct {
+<span id="Null.Converter"></span>    Converter <a href="driver.html#ValueConverter">ValueConverter</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Null.ConvertValue">func (Null) <a href="../../../src/database/sql/driver/types.go%3Fs=4466:4522.html#L144">ConvertValue</a>
+					<a class="permalink" href="driver.html#Null.ConvertValue">&#xb6;</a>
+				</h3>
+				<pre>func (n <a href="driver.html#Null">Null</a>) ConvertValue(v interface{}) (<a href="driver.html#Value">Value</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Pinger">type <a href="../../../src/database/sql/driver/driver.go%3Fs=2658:2716.html#L73">Pinger</a>
+				<a class="permalink" href="driver.html#Pinger">&#xb6;</a>
+			</h2>
+			<p>
+Pinger is an optional interface that may be implemented by a Conn.
+</p>
+<p>
+If a Conn does not implement Pinger, the sql package&#39;s DB.Ping and
+DB.PingContext will check if there is at least one Conn available.
+</p>
+<p>
+If Conn.Ping returns ErrBadConn, DB.Ping and DB.PingContext will remove
+the Conn from pool.
+</p>
+
+			<pre>type Pinger interface {
+    Ping(ctx <a href="../../context.html">context</a>.<a href="../../context.html#Context">Context</a>) <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Queryer">type <a href="../../../src/database/sql/driver/driver.go%3Fs=3971:4046.html#L112">Queryer</a>
+				<a class="permalink" href="driver.html#Queryer">&#xb6;</a>
+			</h2>
+			<p>
+Queryer is an optional interface that may be implemented by a Conn.
+</p>
+<p>
+If a Conn does not implement Queryer, the sql package&#39;s DB.Query will
+first prepare a query, execute the statement, and then close the
+statement.
+</p>
+<p>
+Query may return ErrSkip.
+</p>
+<p>
+Deprecated: Drivers should implement QueryerContext instead (or additionally).
+</p>
+
+			<pre>type Queryer interface {
+    Query(query <a href="../../builtin/index.html#string">string</a>, args []<a href="driver.html#Value">Value</a>) (<a href="driver.html#Rows">Rows</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="QueryerContext">type <a href="../../../src/database/sql/driver/driver.go%3Fs=4425:4540.html#L125">QueryerContext</a>
+				<a class="permalink" href="driver.html#QueryerContext">&#xb6;</a>
+			</h2>
+			<p>
+QueryerContext is an optional interface that may be implemented by a Conn.
+</p>
+<p>
+If a Conn does not implement QueryerContext, the sql package&#39;s DB.Query will
+first prepare a query, execute the statement, and then close the
+statement.
+</p>
+<p>
+QueryerContext may return ErrSkip.
+</p>
+<p>
+QueryerContext must honor the context timeout and return when the context is canceled.
+</p>
+
+			<pre>type QueryerContext interface {
+    QueryContext(ctx <a href="../../context.html">context</a>.<a href="../../context.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args []<a href="driver.html#NamedValue">NamedValue</a>) (<a href="driver.html#Rows">Rows</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Result">type <a href="../../../src/database/sql/driver/driver.go%3Fs=6934:7220.html#L193">Result</a>
+				<a class="permalink" href="driver.html#Result">&#xb6;</a>
+			</h2>
+			<p>
+Result is the result of a query execution.
+</p>
+
+			<pre>type Result interface {
+    <span class="comment">// LastInsertId returns the database&#39;s auto-generated ID</span>
+    <span class="comment">// after, for example, an INSERT into a table with primary</span>
+    <span class="comment">// key.</span>
+    LastInsertId() (<a href="../../builtin/index.html#int64">int64</a>, <a href="../../builtin/index.html#error">error</a>)
+
+    <span class="comment">// RowsAffected returns the number of rows affected by the</span>
+    <span class="comment">// query.</span>
+    RowsAffected() (<a href="../../builtin/index.html#int64">int64</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Rows">type <a href="../../../src/database/sql/driver/driver.go%3Fs=9556:10122.html#L267">Rows</a>
+				<a class="permalink" href="driver.html#Rows">&#xb6;</a>
+			</h2>
+			<p>
+Rows is an iterator over an executed query&#39;s results.
+</p>
+
+			<pre>type Rows interface {
+    <span class="comment">// Columns returns the names of the columns. The number of</span>
+    <span class="comment">// columns of the result is inferred from the length of the</span>
+    <span class="comment">// slice. If a particular column name isn&#39;t known, an empty</span>
+    <span class="comment">// string should be returned for that entry.</span>
+    Columns() []<a href="../../builtin/index.html#string">string</a>
+
+    <span class="comment">// Close closes the rows iterator.</span>
+    Close() <a href="../../builtin/index.html#error">error</a>
+
+    <span class="comment">// Next is called to populate the next row of data into</span>
+    <span class="comment">// the provided slice. The provided slice will be the same</span>
+    <span class="comment">// size as the Columns() are wide.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Next should return io.EOF when there are no more rows.</span>
+    Next(dest []<a href="driver.html#Value">Value</a>) <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RowsAffected">type <a href="../../../src/database/sql/driver/driver.go%3Fs=13130:13153.html#L363">RowsAffected</a>
+				<a class="permalink" href="driver.html#RowsAffected">&#xb6;</a>
+			</h2>
+			<p>
+RowsAffected implements Result for an INSERT or UPDATE operation
+which mutates a number of rows.
+</p>
+
+			<pre>type RowsAffected <a href="../../builtin/index.html#int64">int64</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="RowsAffected.LastInsertId">func (RowsAffected) <a href="../../../src/database/sql/driver/driver.go%3Fs=13187:13236.html#L367">LastInsertId</a>
+					<a class="permalink" href="driver.html#RowsAffected.LastInsertId">&#xb6;</a>
+				</h3>
+				<pre>func (<a href="driver.html#RowsAffected">RowsAffected</a>) LastInsertId() (<a href="../../builtin/index.html#int64">int64</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="RowsAffected.RowsAffected">func (RowsAffected) <a href="../../../src/database/sql/driver/driver.go%3Fs=13293:13344.html#L371">RowsAffected</a>
+					<a class="permalink" href="driver.html#RowsAffected.RowsAffected">&#xb6;</a>
+				</h3>
+				<pre>func (v <a href="driver.html#RowsAffected">RowsAffected</a>) RowsAffected() (<a href="../../builtin/index.html#int64">int64</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RowsColumnTypeDatabaseTypeName">type <a href="../../../src/database/sql/driver/driver.go%3Fs=11348:11449.html#L314">RowsColumnTypeDatabaseTypeName</a>
+				<a class="permalink" href="driver.html#RowsColumnTypeDatabaseTypeName">&#xb6;</a>
+			</h2>
+			<p>
+RowsColumnTypeDatabaseTypeName may be implemented by Rows. It should return the
+database system type name without the length. Type names should be uppercase.
+Examples of returned types: &#34;VARCHAR&#34;, &#34;NVARCHAR&#34;, &#34;VARCHAR2&#34;, &#34;CHAR&#34;, &#34;TEXT&#34;,
+&#34;DECIMAL&#34;, &#34;SMALLINT&#34;, &#34;INT&#34;, &#34;BIGINT&#34;, &#34;BOOL&#34;, &#34;[]BIGINT&#34;, &#34;JSONB&#34;, &#34;XML&#34;,
+&#34;TIMESTAMP&#34;.
+</p>
+
+			<pre>type RowsColumnTypeDatabaseTypeName interface {
+    <a href="driver.html#Rows">Rows</a>
+    ColumnTypeDatabaseTypeName(index <a href="../../builtin/index.html#int">int</a>) <a href="../../builtin/index.html#string">string</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RowsColumnTypeLength">type <a href="../../../src/database/sql/driver/driver.go%3Fs=12010:12108.html#L330">RowsColumnTypeLength</a>
+				<a class="permalink" href="driver.html#RowsColumnTypeLength">&#xb6;</a>
+			</h2>
+			<p>
+RowsColumnTypeLength may be implemented by Rows. It should return the length
+of the column type if the column is a variable length type. If the column is
+not a variable length type ok should return false.
+If length is not limited other than system limits, it should return math.MaxInt64.
+The following are examples of returned values for various types:
+</p>
+<pre>TEXT          (math.MaxInt64, true)
+varchar(10)   (10, true)
+nvarchar(10)  (10, true)
+decimal       (0, false)
+int           (0, false)
+bytea(30)     (30, true)
+</pre>
+
+			<pre>type RowsColumnTypeLength interface {
+    <a href="driver.html#Rows">Rows</a>
+    ColumnTypeLength(index <a href="../../builtin/index.html#int">int</a>) (length <a href="../../builtin/index.html#int64">int64</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RowsColumnTypeNullable">type <a href="../../../src/database/sql/driver/driver.go%3Fs=12356:12454.html#L339">RowsColumnTypeNullable</a>
+				<a class="permalink" href="driver.html#RowsColumnTypeNullable">&#xb6;</a>
+			</h2>
+			<p>
+RowsColumnTypeNullable may be implemented by Rows. The nullable value should
+be true if it is known the column may be null, or false if the column is known
+to be not nullable.
+If the column nullability is unknown, ok should be false.
+</p>
+
+			<pre>type RowsColumnTypeNullable interface {
+    <a href="driver.html#Rows">Rows</a>
+    ColumnTypeNullable(index <a href="../../builtin/index.html#int">int</a>) (nullable, ok <a href="../../builtin/index.html#bool">bool</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RowsColumnTypePrecisionScale">type <a href="../../../src/database/sql/driver/driver.go%3Fs=12820:12944.html#L350">RowsColumnTypePrecisionScale</a>
+				<a class="permalink" href="driver.html#RowsColumnTypePrecisionScale">&#xb6;</a>
+			</h2>
+			<p>
+RowsColumnTypePrecisionScale may be implemented by Rows. It should return
+the precision and scale for decimal types. If not applicable, ok should be false.
+The following are examples of returned values for various types:
+</p>
+<pre>decimal(38, 4)    (38, 4, true)
+int               (0, 0, false)
+decimal           (math.MaxInt64, math.MaxInt64, true)
+</pre>
+
+			<pre>type RowsColumnTypePrecisionScale interface {
+    <a href="driver.html#Rows">Rows</a>
+    ColumnTypePrecisionScale(index <a href="../../builtin/index.html#int">int</a>) (precision, scale <a href="../../builtin/index.html#int64">int64</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RowsColumnTypeScanType">type <a href="../../../src/database/sql/driver/driver.go%3Fs=10914:11005.html#L304">RowsColumnTypeScanType</a>
+				<a class="permalink" href="driver.html#RowsColumnTypeScanType">&#xb6;</a>
+			</h2>
+			<p>
+RowsColumnTypeScanType may be implemented by Rows. It should return
+the value type that can be used to scan types into. For example, the database
+column type &#34;bigint&#34; this should return &#34;reflect.TypeOf(int64(0))&#34;.
+</p>
+
+			<pre>type RowsColumnTypeScanType interface {
+    <a href="driver.html#Rows">Rows</a>
+    ColumnTypeScanType(index <a href="../../builtin/index.html#int">int</a>) <a href="../../reflect/index.html">reflect</a>.<a href="../../reflect/index.html#Type">Type</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RowsNextResultSet">type <a href="../../../src/database/sql/driver/driver.go%3Fs=10250:10689.html#L287">RowsNextResultSet</a>
+				<a class="permalink" href="driver.html#RowsNextResultSet">&#xb6;</a>
+			</h2>
+			<p>
+RowsNextResultSet extends the Rows interface by providing a way to signal
+the driver to advance to the next result set.
+</p>
+
+			<pre>type RowsNextResultSet interface {
+    <a href="driver.html#Rows">Rows</a>
+
+    <span class="comment">// HasNextResultSet is called at the end of the current result set and</span>
+    <span class="comment">// reports whether there is another result set after the current one.</span>
+    HasNextResultSet() <a href="../../builtin/index.html#bool">bool</a>
+
+    <span class="comment">// NextResultSet advances the driver to the next result set even</span>
+    <span class="comment">// if there are remaining rows in the current result set.</span>
+    <span class="comment">//</span>
+    <span class="comment">// NextResultSet should return io.EOF when there are no more result sets.</span>
+    NextResultSet() <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Stmt">type <a href="../../../src/database/sql/driver/driver.go%3Fs=7330:8342.html#L206">Stmt</a>
+				<a class="permalink" href="driver.html#Stmt">&#xb6;</a>
+			</h2>
+			<p>
+Stmt is a prepared statement. It is bound to a Conn and not
+used by multiple goroutines concurrently.
+</p>
+
+			<pre>type Stmt interface {
+    <span class="comment">// Close closes the statement.</span>
+    <span class="comment">//</span>
+    <span class="comment">// As of Go 1.1, a Stmt will not be closed if it&#39;s in use</span>
+    <span class="comment">// by any queries.</span>
+    Close() <a href="../../builtin/index.html#error">error</a>
+
+    <span class="comment">// NumInput returns the number of placeholder parameters.</span>
+    <span class="comment">//</span>
+    <span class="comment">// If NumInput returns &gt;= 0, the sql package will sanity check</span>
+    <span class="comment">// argument counts from callers and return errors to the caller</span>
+    <span class="comment">// before the statement&#39;s Exec or Query methods are called.</span>
+    <span class="comment">//</span>
+    <span class="comment">// NumInput may also return -1, if the driver doesn&#39;t know</span>
+    <span class="comment">// its number of placeholders. In that case, the sql package</span>
+    <span class="comment">// will not sanity check Exec or Query argument counts.</span>
+    NumInput() <a href="../../builtin/index.html#int">int</a>
+
+    <span class="comment">// Exec executes a query that doesn&#39;t return rows, such</span>
+    <span class="comment">// as an INSERT or UPDATE.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Deprecated: Drivers should implement StmtExecContext instead (or additionally).</span>
+    Exec(args []<a href="driver.html#Value">Value</a>) (<a href="driver.html#Result">Result</a>, <a href="../../builtin/index.html#error">error</a>)
+
+    <span class="comment">// Query executes a query that may return rows, such as a</span>
+    <span class="comment">// SELECT.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Deprecated: Drivers should implement StmtQueryContext instead (or additionally).</span>
+    Query(args []<a href="driver.html#Value">Value</a>) (<a href="driver.html#Rows">Rows</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StmtExecContext">type <a href="../../../src/database/sql/driver/driver.go%3Fs=8423:8701.html#L238">StmtExecContext</a>
+				<a class="permalink" href="driver.html#StmtExecContext">&#xb6;</a>
+			</h2>
+			<p>
+StmtExecContext enhances the Stmt interface by providing Exec with context.
+</p>
+
+			<pre>type StmtExecContext interface {
+    <span class="comment">// ExecContext executes a query that doesn&#39;t return rows, such</span>
+    <span class="comment">// as an INSERT or UPDATE.</span>
+    <span class="comment">//</span>
+    <span class="comment">// ExecContext must honor the context timeout and return when it is canceled.</span>
+    ExecContext(ctx <a href="../../context.html">context</a>.<a href="../../context.html#Context">Context</a>, args []<a href="driver.html#NamedValue">NamedValue</a>) (<a href="driver.html#Result">Result</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StmtQueryContext">type <a href="../../../src/database/sql/driver/driver.go%3Fs=8784:9049.html#L247">StmtQueryContext</a>
+				<a class="permalink" href="driver.html#StmtQueryContext">&#xb6;</a>
+			</h2>
+			<p>
+StmtQueryContext enhances the Stmt interface by providing Query with context.
+</p>
+
+			<pre>type StmtQueryContext interface {
+    <span class="comment">// QueryContext executes a query that may return rows, such as a</span>
+    <span class="comment">// SELECT.</span>
+    <span class="comment">//</span>
+    <span class="comment">// QueryContext must honor the context timeout and return when it is canceled.</span>
+    QueryContext(ctx <a href="../../context.html">context</a>.<a href="../../context.html#Context">Context</a>, args []<a href="driver.html#NamedValue">NamedValue</a>) (<a href="driver.html#Rows">Rows</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Tx">type <a href="../../../src/database/sql/driver/driver.go%3Fs=12970:13025.html#L356">Tx</a>
+				<a class="permalink" href="driver.html#Tx">&#xb6;</a>
+			</h2>
+			<p>
+Tx is a transaction.
+</p>
+
+			<pre>type Tx interface {
+    Commit() <a href="../../builtin/index.html#error">error</a>
+    Rollback() <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TxOptions">type <a href="../../../src/database/sql/driver/driver.go%3Fs=6017:6084.html#L170">TxOptions</a>
+				<a class="permalink" href="driver.html#TxOptions">&#xb6;</a>
+			</h2>
+			<p>
+TxOptions holds the transaction options.
+</p>
+<p>
+This type should be considered identical to sql.TxOptions.
+</p>
+
+			<pre>type TxOptions struct {
+<span id="TxOptions.Isolation"></span>    Isolation <a href="driver.html#IsolationLevel">IsolationLevel</a>
+<span id="TxOptions.ReadOnly"></span>    ReadOnly  <a href="../../builtin/index.html#bool">bool</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Value">type <a href="../../../src/database/sql/driver/driver.go%3Fs=553:575.html#L16">Value</a>
+				<a class="permalink" href="driver.html#Value">&#xb6;</a>
+			</h2>
+			<p>
+Value is a value that drivers must be able to handle.
+It is either nil or an instance of one of these types:
+</p>
+<pre>int64
+float64
+bool
+[]byte
+string
+time.Time
+</pre>
+
+			<pre>type Value interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ValueConverter">type <a href="../../../src/database/sql/driver/types.go%3Fs=927:1057.html#L20">ValueConverter</a>
+				<a class="permalink" href="driver.html#ValueConverter">&#xb6;</a>
+			</h2>
+			<p>
+ValueConverter is the interface providing the ConvertValue method.
+</p>
+<p>
+Various implementations of ValueConverter are provided by the
+driver package to provide consistent implementations of conversions
+between drivers. The ValueConverters have several uses:
+</p>
+<pre>* converting from the Value types as provided by the sql package
+  into a database table&#39;s specific column type and making sure it
+  fits, such as making sure a particular int64 fits in a
+  table&#39;s uint16 column.
+
+* converting a value as given from the database into one of the
+  driver Value types.
+
+* by the sql package, for converting from a driver&#39;s Value type
+  to a user&#39;s type in a scan.
+</pre>
+
+			<pre>type ValueConverter interface {
+    <span class="comment">// ConvertValue converts a value to a driver Value.</span>
+    ConvertValue(v interface{}) (<a href="driver.html#Value">Value</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Valuer">type <a href="../../../src/database/sql/driver/types.go%3Fs=1209:1292.html#L29">Valuer</a>
+				<a class="permalink" href="driver.html#Valuer">&#xb6;</a>
+			</h2>
+			<p>
+Valuer is the interface providing the Value method.
+</p>
+<p>
+Types implementing Valuer interface are able to convert
+themselves to a driver Value.
+</p>
+
+			<pre>type Valuer interface {
+    <span class="comment">// Value returns a driver Value.</span>
+    Value() (<a href="driver.html#Value">Value</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.8.5.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="../../../LICENSE.html">BSD license</a>.<br>
+<a href="../../../doc/tos.html">Terms of Service</a> | 
+<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+<!-- TODO(adonovan): load these from <head> using "defer" attribute? -->
+<script type="text/javascript" src="/lib/godoc/jquery.js"></script>
+<script type="text/javascript" src="/lib/godoc/jquery.treeview.js"></script>
+<script type="text/javascript" src="/lib/godoc/jquery.treeview.edit.js"></script>
+
+
+<script>var goVersion = "go1.8.5";</script>
+<script type="text/javascript" src="/lib/godoc/godocs.js"></script>
+
+</body>
+</html>
+
